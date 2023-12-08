@@ -1,9 +1,16 @@
 // MathComponent.js
-import React from "react";
+import React,{useMemo} from "react";
 import "katex/dist/katex.min.css";
 import {InlineMath, BlockMath} from "react-katex";
 
 const MathComponent = () => {
+  const computeValue = (dep1, dep2) => {
+    return dep1 * dep2
+  };
+  const dep1 = 3
+  const dep2 = 4
+  const memoizedValue = useMemo(() => computeValue(dep1, dep2), [dep1, dep2]);
+
   return (
     <div>
       <p>
